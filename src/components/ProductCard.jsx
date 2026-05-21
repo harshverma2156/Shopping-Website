@@ -1,16 +1,16 @@
-function ProductCard(props) {
+function ProductCard({ name, price, image }) {
 
   return (
     <div>
       <img
-        src={props.image}
-        alt={props.name}
+        src={image}
+        alt={name}
         width="200"
       />
 
-      <h2>{props.name}</h2>
+      <h2>{name}</h2>
 
-      <p>Price: ₹{props.price}</p>
+      <p>Price: ₹{price}</p>
 
       <button>Add To Cart</button>
     </div>
