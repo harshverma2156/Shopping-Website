@@ -6,9 +6,13 @@ function Navbar({ cartCount }) {
       style={{
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         padding: "20px",
         backgroundColor: "black",
-        color: "white"
+        color: "white",
+        position: "sticky",
+        top: "0",
+        zIndex: "100"
       }}
     >
 
@@ -18,11 +22,13 @@ function Navbar({ cartCount }) {
         style={{
           display: "flex",
           gap: "20px",
-          listStyle: "none"
+          listStyle: "none",
+          margin: "0"
         }}
       >
 
         <li>Home</li>
+
         <li>Products</li>
 
         <li>

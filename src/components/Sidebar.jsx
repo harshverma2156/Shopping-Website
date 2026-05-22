@@ -1,14 +1,22 @@
 import { useEffect, useRef } from "react"
 
-function Sidebar({ cartItems }) {
+function Sidebar({
+  cartItems,
+  increaseQuantity,
+  decreaseQuantity
+}) {
 
-
+  // TOTAL AMOUNT
   const totalAmount = cartItems.reduce(
-    (total, item) => total + item.price,
+    (total, item) =>
+      total + item.price * item.quantity,
     0
   )
 
+  // AUTO SCROLL REF
   const bottomRef = useRef(null)
+
+  // AUTO SCROLL
   useEffect(() => {
 
     bottomRef.current?.scrollIntoView({
@@ -34,7 +42,7 @@ function Sidebar({ cartItems }) {
       }}
     >
 
-    
+      {/* TOP SECTION */}
       <div
         style={{
           textAlign: "center"
@@ -53,7 +61,7 @@ function Sidebar({ cartItems }) {
 
       <hr />
 
-
+      {/* PRODUCTS */}
       <div
         style={{
           flex: "1",
@@ -82,7 +90,45 @@ function Sidebar({ cartItems }) {
 
                 <h3>{item.name}</h3>
 
-                <p>₹{item.price}</p>
+                <p>
+                  ₹{item.price}
+                </p>
+
+                <p>
+                  Total:
+                  ₹{item.price * item.quantity}
+                </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginTop: "10px"
+                  }}
+                >
+
+                  <button
+                    onClick={() =>
+                      decreaseQuantity(item.id)
+                    }
+                  >
+                    -
+                  </button>
+
+                  <span>
+                    {item.quantity}
+                  </span>
+
+                  <button
+                    onClick={() =>
+                      increaseQuantity(item.id)
+                    }
+                  >
+                    +
+                  </button>
+
+                </div>
 
               </div>
 
@@ -91,12 +137,12 @@ function Sidebar({ cartItems }) {
           )
         }
 
-       
+        {/* AUTO SCROLL TARGET */}
         <div ref={bottomRef}></div>
 
       </div>
 
-     
+      {/* FIXED TOTAL */}
       <div
         style={{
           marginBottom: "30px",
@@ -106,7 +152,7 @@ function Sidebar({ cartItems }) {
       >
 
         <h2>
-          Total: ₹{totalAmount}
+          Total Amount: ₹{totalAmount}
         </h2>
 
       </div>

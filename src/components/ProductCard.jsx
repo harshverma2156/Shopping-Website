@@ -13,7 +13,8 @@ function ProductCard({
         padding: "15px",
         width: "220px",
         borderRadius: "10px",
-        textAlign: "center"
+        textAlign: "center",
+        boxShadow: "0px 0px 10px rgba(0,0,0,0.1)"
       }}
     >
 
@@ -22,7 +23,9 @@ function ProductCard({
         alt={name}
         width="200"
         style={{
-          borderRadius: "10px"
+          borderRadius: "10px",
+          height: "200px",
+          objectFit: "cover"
         }}
       />
 
@@ -30,7 +33,13 @@ function ProductCard({
 
       <p>₹{price}</p>
 
-      <button onClick={addToCart}>
+      <button
+        onClick={addToCart}
+        style={{
+          padding: "10px 15px",
+          cursor: "pointer"
+        }}
+      >
         Add To Cart
       </button>
 
