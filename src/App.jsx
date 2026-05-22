@@ -1,14 +1,17 @@
 import { useState } from "react"
+
 import Navbar from "./components/Navbar"
 import ProductCard from "./components/ProductCard"
+import Sidebar from "./components/Sidebar"
 
 function App() {
 
-  // STATE
-  const [cartCount, setCartCount] = useState(0)
+  // CART ITEMS
+  const [cartItems, setCartItems] = useState([])
 
-  // PRODUCTS ARRAY
+  // PRODUCTS
   const products = [
+
     {
       id: 1,
       name: "Nike Shoes",
@@ -32,19 +35,29 @@ function App() {
       image:
         "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
     },
+
   ]
 
-  // FUNCTION
-  function addToCart() {
-    setCartCount(cartCount + 1)
+  // ADD TO CART
+  function addToCart(product) {
+
+    setCartItems([...cartItems, product])
+
   }
 
   return (
+
     <div>
 
-      <Navbar cartCount={cartCount} />
+      <Navbar cartCount={cartItems.length} />
 
-      <h1 style={{ textAlign: "center" }}>
+      <Sidebar cartItems={cartItems} />
+
+      <h1
+        style={{
+          textAlign: "center"
+        }}
+      >
         Our Products
       </h1>
 
@@ -53,7 +66,8 @@ function App() {
           display: "flex",
           gap: "20px",
           flexWrap: "wrap",
-          justifyContent: "center"
+          justifyContent: "center",
+          marginRight: "320px"
         }}
       >
 
@@ -65,7 +79,10 @@ function App() {
               name={product.name}
               price={product.price}
               image={product.image}
-              addToCart={addToCart}
+
+              addToCart={() =>
+                addToCart(product)
+              }
             />
 
           ))
@@ -74,6 +91,7 @@ function App() {
       </div>
 
     </div>
+
   )
 }
 
