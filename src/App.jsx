@@ -1,8 +1,13 @@
+import { useState } from "react"
 import Navbar from "./components/Navbar"
 import ProductCard from "./components/ProductCard"
 
 function App() {
 
+  // STATE
+  const [cartCount, setCartCount] = useState(0)
+
+  // PRODUCTS ARRAY
   const products = [
     {
       id: 1,
@@ -27,33 +32,46 @@ function App() {
       image:
         "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
     },
-
-    {
-      id: 4,
-      name: "Headphones",
-      price: 1999,
-      image:
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-    },
   ]
+
+  // FUNCTION
+  function addToCart() {
+    setCartCount(cartCount + 1)
+  }
 
   return (
     <div>
 
-      <Navbar />
+      <Navbar cartCount={cartCount} />
 
-      <h1>Our Products</h1>
+      <h1 style={{ textAlign: "center" }}>
+        Our Products
+      </h1>
 
-      {
-        products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            image={product.image}
-          />
-        ))
-      }
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap",
+          justifyContent: "center"
+        }}
+      >
+
+        {
+          products.map((product) => (
+
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              price={product.price}
+              image={product.image}
+              addToCart={addToCart}
+            />
+
+          ))
+        }
+
+      </div>
 
     </div>
   )
