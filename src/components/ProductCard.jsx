@@ -1,19 +1,31 @@
-function ProductCard({ name, price, image }) {
+function ProductCard({ name, price, image, addToCart }) {
 
   return (
-    <div>
-      <img
-        src={image}
-        alt={name}
-        width="200"
-      />
+    <div
+     style={{
+      border: "1px solid black",
+      padding: "10px",
+      margin: "10px",
+      width: "220px"
+     }}
+     >
 
-      <h2>{name}</h2>
+     <img
+     scr={image}
+     alt={name}
+     width="200"
+     />
 
-      <p>Price: ₹{price}</p>
+     <h2>{name}</h2>
 
-      <button>Add To Cart</button>
-    </div>
+     <p>₹{price}</p>
+
+     <button> onClick={addToCart}
+      Add To Cart
+     </button>
+
+     </div>
+
   )
 }
 
