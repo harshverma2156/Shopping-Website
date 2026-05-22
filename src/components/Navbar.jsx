@@ -1,15 +1,20 @@
-function Navbar({ cartCount }) {
-    return( 
-        <nav>
-            <h2>Sopping Website</h2>
+import
 
-            <ul>
-                <li>Home</li>
-                <li>Product</li>
-                <li>Cart ({cartCount})</li>
-            </ul>
-        </nav>
-    )
+function Navbar({ cartCount }) {
+
+  return (
+    <nav>
+
+      <h2>Shopping Website</h2>
+
+      <ul>
+        <li>Home</li>
+        <li>Products</li>
+        <li>Cart ({cartCount})</li>
+      </ul>
+
+    </nav>
+  )
 }
 
 export default Navbar
