@@ -1,11 +1,11 @@
 function Navbar({ cartCount }) {
 
   return (
+
     <nav
       style={{
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
         padding: "20px",
         backgroundColor: "black",
         color: "white"
@@ -21,12 +21,18 @@ function Navbar({ cartCount }) {
           listStyle: "none"
         }}
       >
+
         <li>Home</li>
         <li>Products</li>
-        <li>Cart ({cartCount})</li>
+
+        <li>
+          Cart ({cartCount})
+        </li>
+
       </ul>
 
     </nav>
+
   )
 }
 
