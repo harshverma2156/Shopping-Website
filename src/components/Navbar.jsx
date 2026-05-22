@@ -1,13 +1,26 @@
-import
-
 function Navbar({ cartCount }) {
 
   return (
-    <nav>
+    <nav
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "20px",
+        backgroundColor: "black",
+        color: "white"
+      }}
+    >
 
       <h2>Shopping Website</h2>
 
-      <ul>
+      <ul
+        style={{
+          display: "flex",
+          gap: "20px",
+          listStyle: "none"
+        }}
+      >
         <li>Home</li>
         <li>Products</li>
         <li>Cart ({cartCount})</li>
